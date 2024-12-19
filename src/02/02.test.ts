@@ -1,47 +1,66 @@
 import { LocalCityType } from "./02-02"
-import { HousesType } from "./02-02"
 
 let city: LocalCityType
 
 beforeEach(() => {
-    city: {
-        title: "New York"
-        houses:<HousesType> [
+    city = {
+        title: "New York",
+        houses: [
+                {
+                    buildedAt: 2012,
+                    repaired: false,
+                    address: {
+                        number: 100,
+                        street: {
+                            title: "White Street"
+                        }
+                    }
+                },
+                {
+                    buildedAt: 2008,
+                    repaired: false,
+                    address: {
+                        number: 100,
+                        street: {
+                            title: "Happy street"
+                        }
+                    }
+                },
+                {
+                    buildedAt: 2020,
+                    repaired: false,
+                    address: {
+                        number: 200,
+                        street: {
+                            title: "Black street"
+                        }
+                    }
+                },
+            ],
+        governmentBuildings: [
             {
-                buildedAt: 1,
-                repaired: false,
+                type: "HOSPITAL",
+                budget: 200000,
+                staffCount: 1000,
                 address: {
-                    number: 24,
                     street: {
-                        title: "Main Street"
+                        title: "Central Street"
                     }
                 }
             },
             {
-                buildedAt: 2,
-                repaired: true,
+                type: "FIRE-STATION",
+                budget: 500000,
+                staffCount: 1000,
                 address: {
-                    number: 33,
                     street: {
-                        title: "Second Street"
+                        title: "South Street"
                     }
                 }
             },
-            {
-                buildedAt: 3,
-                repaired: true,
-                address: {
-                    number: 28,
-                    street: {
-                        title: "Third Street"
-                    }
-                }
-            },
-        ]
-        governmentBuildings: []
+        ],
         cityZonesNumbers: 1000000
-        }
-    
+    }
 })
 
 //1. Создайте тип CityType
@@ -49,34 +68,34 @@ beforeEach(() => {
 test("city should contains 3 houses", () => {
     expect(city.houses.length).toBe(3);
 
-    expect(city.houses[0].buildedAt).toBe();
+    expect(city.houses[0].buildedAt).toBe(2012);
     expect(city.houses[0].repaired).toBe(false);
-    expect(city.houses[0].address.number).toBe();
-    expect(city.houses[0].address.street.title).toBe();
+    expect(city.houses[0].address.number).toBe(100);
+    expect(city.houses[0].address.street.title).toBe("White Street");
 
-    expect(city.houses[1].buildedAt).toBe();
+    expect(city.houses[1].buildedAt).toBe(2008);
     expect(city.houses[1].repaired).toBe(false);
-    expect(city.houses[1].address.number).toBe();
-    expect(city.houses[1].address.street.title).toBe();
+    expect(city.houses[1].address.number).toBe(100);
+    expect(city.houses[1].address.street.title).toBe("Happy street");
 
-    expect(city.houses[2].buildedAt).toBe();
+    expect(city.houses[2].buildedAt).toBe(2020);
     expect(city.houses[2].repaired).toBe(false);
-    expect(city.houses[2].address.number).toBe();
-    expect(city.houses[2].address.street.title).toBe();
+    expect(city.houses[2].address.number).toBe(200);
+    expect(city.houses[2].address.street.title).toBe("Black street");
 })
 
 // 3. Дополните тип GovernmentBuildingsType
 // 4. Заполните объект city, чтобы тесты прошли
-test.skip("city should contains hospital and fire station", () => {
-    expect(city.governmentBuildings.length).toBe();
+test("city should contains hospital and fire station", () => {
+    expect(city.governmentBuildings.length).toBe(2);
 
     expect(city.governmentBuildings[0].type).toBe("HOSPITAL")
     expect(city.governmentBuildings[0].budget).toBe(200000)
     expect(city.governmentBuildings[0].staffCount).toBe(1000)
-    expect(city.governmentBuildings[0].address.street.title).toBe()
+    expect(city.governmentBuildings[0].address.street.title).toBe("Central Street")
 
     expect(city.governmentBuildings[1].type).toBe("FIRE-STATION")
     expect(city.governmentBuildings[1].budget).toBe(500000)
     expect(city.governmentBuildings[1].staffCount).toBe(1000)
-    expect(city.governmentBuildings[1].address.street.title).toBe()
+    expect(city.governmentBuildings[1].address.street.title).toBe("South Street")
 })
